@@ -1,4 +1,4 @@
-# Ambari Blueprints Examples
+# Ambari Blueprints Examples for Launch.hwx.com
 
 A few blueprints that make it really easy to walk through a wizard and launch HDP clusters.
 
