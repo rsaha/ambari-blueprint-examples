@@ -17,6 +17,6 @@ Master node x 3.
 - Master3: SecoundaryNamenode, HMaster, ZooKeeper3, App Timeline Server
 
 # Core Slaves
-Slave node x 6
+Slave node x 1
 - DataNode, NodeManager, RegionServer
 
