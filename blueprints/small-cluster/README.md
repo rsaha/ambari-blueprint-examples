@@ -1,7 +1,7 @@
 Small HDP Cluster
 =================
 
-Likely 8-10 nodes that represent a standard HDP cluster.
+Likely 4 nodes that represent a standard HDP cluster.
 
 HDP components includeing
 - Core: HDFS, YARN, Zookeeper
@@ -17,7 +17,7 @@ Master node x 3.
 - Master3: SecoundaryNamenode, HMaster, ZooKeeper3, App Timeline Server
 
 # Slaves
-Slave node x 6
+Slave node x 1
 - DataNode, NodeManager, RegionServer
 
 # Edges
