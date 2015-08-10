@@ -1,7 +1,7 @@
 Streaming HDP Cluster
 =====================
 
-Deploys 10 nodes cluster including Storm and Kafka.
+Deploys 4 nodes cluster including Storm and Kafk to enable trying HDP for IoT type usecase.
 
 HDP components includeing
 - Core: HDFS, YARN, Zookeeper
