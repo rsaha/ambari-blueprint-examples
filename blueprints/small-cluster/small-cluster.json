@@ -1396,7 +1396,7 @@
           "name" : "DATANODE"
         }
       ],
-      "cardinality" : "6"
+      "cardinality" : "1"
     },
     {
       "name" : "host_group_master_2",
