@@ -20,6 +20,3 @@ Master node x 3.
 Slave node x 1
 - DataNode, NodeManager, RegionServer
 
-# Edges
-Edge node x 1
-- Knox Gateway, Client, Ambari Metrics Collector
