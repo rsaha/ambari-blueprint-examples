@@ -1,7 +1,7 @@
 HDP Cluster with Spark
 ======================
 
-Deploys 10 nodes cluster including Spark.
+Deploys 4 nodes cluster including Spark to enable trying HDP for data scientist usecase.
 
 HDP components includeing
 - Core: HDFS, YARN, Zookeeper
