@@ -1,7 +1,7 @@
-Small HDP Cluster
+Sandbox HDP Cluster
 =================
 
-HDP Sandbox Equivalent - Very cheap blueprint to run something up in the cloud to play with our stuff
+HDP Sandbox Equivalent - blueprint to run almost everything in sandbox in multi-node ( 4 nodes) envrionment.
 
 HDP components includeing
 - Core: HDFS, YARN, Zookeeper
@@ -11,4 +11,3 @@ HDP components includeing
 - Workflow: Oozie, Falcon
 - Others: Slider, Sqoop, Client
 
-All in one box.
