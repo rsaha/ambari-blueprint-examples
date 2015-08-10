@@ -1,7 +1,7 @@
-Small HDP Cluster
+Developer HDP Cluster
 =================
 
-Likely 4 nodes that represent a standard HDP cluster.
+Likely 4 nodes that represent a standard HDP cluste to enable trying std. Big Data App developer usecase.
 
 HDP components includeing
 - Core: HDFS, YARN, Zookeeper
