@@ -32,21 +32,6 @@
       "hosts" : [
         {
           "fqdn" : "slave1.ambari.apache.org"
-        },
-        {
-          "fqdn" : "slave2.ambari.apache.org"
-        },
-        {
-          "fqdn" : "slave3.ambari.apache.org"
-        },
-        {
-          "fqdn" : "slave4.ambari.apache.org"
-        },
-        {
-          "fqdn" : "slave5.ambari.apache.org"
-        },
-        {
-          "fqdn" : "slave6.ambari.apache.org"
         }
       ]
     },
