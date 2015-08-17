@@ -238,85 +238,6 @@
       }
     },
     {
-      "falcon-env" : {
-        "properties" : {
-          "content" : "\n# The java implementation to use. If JAVA_HOME is not found we expect java and jar to be in path\nexport JAVA_HOME={{java_home}}\n\n# any additional java opts you want to set. This will apply to both client and server operations\n#export FALCON_OPTS=\n\n# any additional java opts that you want to set for client only\n#export FALCON_CLIENT_OPTS=\n\n# java heap size we want to set for the client. Default is 1024MB\n#export FALCON_CLIENT_HEAP=\n\n# any additional opts you want to set for prisim service.\n#export FALCON_PRISM_OPTS=\n\n# java heap size we want to set for the prisim service. Default is 1024MB\n#export FALCON_PRISM_HEAP=\n\n# any additional opts you want to set for falcon service.\nexport FALCON_SERVER_OPTS=\"-Dfalcon.embeddedmq={{falcon_embeddedmq_enabled}} -Dfalcon.emeddedmq.port={{falcon_emeddedmq_port}}\"\n\n# java heap size we want to set for the falcon server. Default is 1024MB\n#export FALCON_SERVER_HEAP=\n\n# What is is considered as falcon home dir. Default is the base location of the installed software\n#export FALCON_HOME_DIR=\n\n# Where log files are stored. Defatult is logs directory under the base install location\nexport FALCON_LOG_DIR={{falcon_log_dir}}\n\n# Where pid files are stored. Defatult is logs directory under the base install location\nexport FALCON_PID_DIR={{falcon_pid_dir}}\n\n# where the falcon active mq data is stored. Defatult is logs/data directory under the base install location\nexport FALCON_DATA_DIR={{falcon_embeddedmq_data}}\n\n# Where do you want to expand the war file. By Default it is in /server/webapp dir under the base install dir.\n#export FALCON_EXPANDED_WEBAPP_DIR=",
-          "falcon.embeddedmq" : "true",
-          "falcon.embeddedmq.data" : "/hadoop/falcon/embeddedmq/data",
-          "falcon.emeddedmq.port" : "61616",
-          "falcon_local_dir" : "/hadoop/falcon",
-          "falcon_log_dir" : "/var/log/falcon",
-          "falcon_pid_dir" : "/var/run/falcon",
-          "falcon_port" : "15000",
-          "falcon_store_uri" : "file:///hadoop/falcon/store",
-          "falcon_user" : "falcon"
-        }
-      }
-    },
-    {
-      "falcon-runtime.properties" : {
-        "properties" : {
-          "*.domain" : "${falcon.app.type}",
-          "*.log.cleanup.frequency.days.retention" : "days(7)",
-          "*.log.cleanup.frequency.hours.retention" : "minutes(1)",
-          "*.log.cleanup.frequency.minutes.retention" : "hours(6)",
-          "*.log.cleanup.frequency.months.retention" : "months(3)"
-        }
-      }
-    },
-    {
-      "falcon-startup.properties" : {
-        "properties" : {
-          "*.ConfigSyncService.impl" : "org.apache.falcon.resource.ConfigSyncService",
-          "*.ProcessInstanceManager.impl" : "org.apache.falcon.resource.InstanceManager",
-          "*.SchedulableEntityManager.impl" : "org.apache.falcon.resource.SchedulableEntityManager",
-          "*.application.services" : "org.apache.falcon.security.AuthenticationInitializationService,\\\n      org.apache.falcon.workflow.WorkflowJobEndNotificationService, \\\n      org.apache.falcon.service.ProcessSubscriberService,\\\n      org.apache.falcon.entity.store.ConfigurationStore,\\\n      org.apache.falcon.rerun.service.RetryService,\\\n      org.apache.falcon.rerun.service.LateRunService,\\\n      org.apache.falcon.service.LogCleanupService,\\\n      org.apache.falcon.metadata.MetadataMappingService",
-          "*.broker.impl.class" : "org.apache.activemq.ActiveMQConnectionFactory",
-          "*.broker.ttlInMins" : "4320",
-          "*.broker.url" : "tcp://%HOSTGROUP::host_group_master_1%:61616",
-          "*.catalog.service.impl" : "org.apache.falcon.catalog.HiveCatalogService",
-          "*.config.store.uri" : "file:///hadoop/falcon/store",
-          "*.configstore.listeners" : "org.apache.falcon.entity.v0.EntityGraph,\\\n      org.apache.falcon.entity.ColoClusterRelation,\\\n      org.apache.falcon.group.FeedGroupMap,\\\n      org.apache.falcon.service.SharedLibraryHostingService",
-          "*.dfs.namenode.kerberos.principal" : "nn/_HOST@EXAMPLE.COM",
-          "*.domain" : "${falcon.app.type}",
-          "*.entity.topic" : "FALCON.ENTITY.TOPIC",
-          "*.falcon.authentication.type" : "simple",
-          "*.falcon.cleanup.service.frequency" : "days(1)",
-          "*.falcon.enableTLS" : "false",
-          "*.falcon.graph.blueprints.graph" : "com.thinkaurelius.titan.core.TitanFactory",
-          "*.falcon.graph.preserve.history" : "false",
-          "*.falcon.graph.serialize.path" : "/mnt/hadoop/falcon/data/lineage",
-          "*.falcon.graph.storage.backend" : "berkeleyje",
-          "*.falcon.graph.storage.directory" : "/mnt/hadoop/falcon/data/lineage/graphdb",
-          "*.falcon.http.authentication.blacklisted.users" : "",
-          "*.falcon.http.authentication.cookie.domain" : "EXAMPLE.COM",
-          "*.falcon.http.authentication.kerberos.keytab" : "/etc/security/keytabs/spnego.service.keytab",
-          "*.falcon.http.authentication.kerberos.name.rules" : "DEFAULT",
-          "*.falcon.http.authentication.signature.secret" : "falcon",
-          "*.falcon.http.authentication.simple.anonymous.allowed" : "true",
-          "*.falcon.http.authentication.token.validity" : "36000",
-          "*.falcon.http.authentication.type" : "simple",
-          "*.falcon.security.authorization.admin.groups" : "falcon",
-          "*.falcon.security.authorization.admin.users" : "falcon,ambari-qa",
-          "*.falcon.security.authorization.enabled" : "false",
-          "*.falcon.security.authorization.provider" : "org.apache.falcon.security.DefaultAuthorizationProvider",
-          "*.falcon.security.authorization.superusergroup" : "falcon",
-          "*.falcon.service.authentication.kerberos.keytab" : "/etc/security/keytabs/falcon.service.keytab",
-          "*.internal.queue.size" : "1000",
-          "*.journal.impl" : "org.apache.falcon.transaction.SharedFileSystemJournal",
-          "*.max.retry.failure.count" : "1",
-          "*.oozie.feed.workflow.builder" : "org.apache.falcon.workflow.OozieFeedWorkflowBuilder",
-          "*.oozie.process.workflow.builder" : "org.apache.falcon.workflow.OozieProcessWorkflowBuilder",
-          "*.retry.recorder.path" : "${falcon.log.dir}/retry",
-          "*.shared.libs" : "activemq-core,ant,geronimo-j2ee-management,hadoop-distcp,jms,json-simple,oozie-client,spring-jms",
-          "*.system.lib.location" : "${falcon.home}/server/webapp/${falcon.app.type}/WEB-INF/lib",
-          "*.workflow.engine.impl" : "org.apache.falcon.workflow.engine.OozieWorkflowEngine",
-          "prism.application.services" : "org.apache.falcon.entity.store.ConfigurationStore",
-          "prism.configstore.listeners" : "org.apache.falcon.entity.v0.EntityGraph,\\\n      org.apache.falcon.entity.ColoClusterRelation,\\\n      org.apache.falcon.group.FeedGroupMap"
-        }
-      }
-    },
-    {
       "gateway-log4j" : {
         "properties" : {
           "content" : "\n\n      # Licensed to the Apache Software Foundation (ASF) under one\n      # or more contributor license agreements. See the NOTICE file\n      # distributed with this work for additional information\n      # regarding copyright ownership. The ASF licenses this file\n      # to you under the Apache License, Version 2.0 (the\n      # \"License\"); you may not use this file except in compliance\n      # with the License. You may obtain a copy of the License at\n      #\n      # http://www.apache.org/licenses/LICENSE-2.0\n      #\n      # Unless required by applicable law or agreed to in writing, software\n      # distributed under the License is distributed on an \"AS IS\" BASIS,\n      # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n      # See the License for the specific language governing permissions and\n      # limitations under the License.\n\n      app.log.dir=${launcher.dir}/../logs\n      app.log.file=${launcher.name}.log\n      app.audit.file=${launcher.name}-audit.log\n\n      log4j.rootLogger=ERROR, drfa\n\n      log4j.logger.org.apache.hadoop.gateway=INFO\n      #log4j.logger.org.apache.hadoop.gateway=DEBUG\n\n      #log4j.logger.org.eclipse.jetty=DEBUG\n      #log4j.logger.org.apache.shiro=DEBUG\n      #log4j.logger.org.apache.http=DEBUG\n      #log4j.logger.org.apache.http.client=DEBUG\n      #log4j.logger.org.apache.http.headers=DEBUG\n      #log4j.logger.org.apache.http.wire=DEBUG\n\n      log4j.appender.stdout=org.apache.log4j.ConsoleAppender\n      log4j.appender.stdout.layout=org.apache.log4j.PatternLayout\n      log4j.appender.stdout.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{2}: %m%n\n\n      log4j.appender.drfa=org.apache.log4j.DailyRollingFileAppender\n      log4j.appender.drfa.File=${app.log.dir}/${app.log.file}\n      log4j.appender.drfa.DatePattern=.yyyy-MM-dd\n      log4j.appender.drfa.layout=org.apache.log4j.PatternLayout\n      log4j.appender.drfa.layout.ConversionPattern=%d{ISO8601} %-5p %c{2} (%F:%M(%L)) - %m%n\n\n      log4j.logger.audit=INFO, auditfile\n      log4j.appender.auditfile=org.apache.log4j.DailyRollingFileAppender\n      log4j.appender.auditfile.File=${app.log.dir}/${app.audit.file}\n      log4j.appender.auditfile.Append = true\n      log4j.appender.auditfile.DatePattern = '.'yyyy-MM-dd\n      log4j.appender.auditfile.layout = org.apache.hadoop.gateway.audit.log4j.layout.AuditLayout"
@@ -1319,13 +1240,7 @@
           "name" : "HCAT"
         },
         {
-          "name" : "KNOX_GATEWAY"
-        },
-        {
           "name" : "METRICS_MONITOR"
-        },
-        {
-          "name" : "FALCON_CLIENT"
         },
         {
           "name" : "TEZ_CLIENT"
@@ -1340,7 +1255,7 @@
           "name" : "HDFS_CLIENT"
         },
         {
-          "name" : "HIVE_CLIENT"
+          "name" : "HIVE_CLIENT" //need beeline
         },
         {
           "name" : "YARN_CLIENT"
@@ -1350,31 +1265,6 @@
         },
         {
           "name" : "MAPREDUCE2_CLIENT"
-        }
-      ],
-      "cardinality" : "1"
-    },
-    {
-      "name" : "host_group_master_3",
-      "configurations" : [ ],
-      "components" : [
-        {
-          "name" : "ZOOKEEPER_SERVER"
-        },
-        {
-          "name" : "APP_TIMELINE_SERVER"
-        },
-        {
-          "name" : "HBASE_MASTER"
-        },
-        {
-          "name" : "HDFS_CLIENT"
-        },
-        {
-          "name" : "METRICS_MONITOR"
-        },
-        {
-          "name" : "SECONDARY_NAMENODE"
         }
       ],
       "cardinality" : "1"
@@ -1402,9 +1292,6 @@
       "name" : "host_group_master_2",
       "configurations" : [ ],
       "components" : [
-        {
-          "name" : "ZOOKEEPER_SERVER"
-        },
         {
           "name" : "PIG"
         },
@@ -1455,6 +1342,12 @@
           "name" : "HISTORYSERVER"
         },
         {
+          "name" : "HBASE_MASTER"
+        },
+        {
+          "name" : "APP_TIMELINE_SERVER"
+        },
+        {
           "name" : "OOZIE_CLIENT"
         },
         {
@@ -1470,9 +1363,6 @@
           "name" : "YARN_CLIENT"
         },
         {
-          "name" : "FALCON_SERVER"
-        },
-        {
           "name" : "METRICS_MONITOR"
         },
         {
@@ -1484,6 +1374,6 @@
   ],
   "Blueprints" : {
     "stack_name" : "HDP",
-    "stack_version" : "2.2"
+    "stack_version" : "2.3"
   }
 }

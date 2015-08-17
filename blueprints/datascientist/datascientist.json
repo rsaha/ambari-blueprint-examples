@@ -1548,6 +1548,6 @@
   ],
   "Blueprints" : {
     "stack_name" : "HDP",
-    "stack_version" : "2.2"
+    "stack_version" : "2.3"
   }
 }
